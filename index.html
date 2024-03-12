@@ -1,37 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"><script>
-<div id="tree-container"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <style>
-  body{
-      background:black;
-  } 
-  .node {
-      cursor: pointer;
+body{
+  background:black;
+} 
+.node {
+    cursor: pointer;
   }
   .overlay{
       background-color:black;
   }
   .node circle {
-      fill: #fff;
-      stroke: white;
-      stroke-width: 1.5px;
+    fill: #fff;
+    stroke: white;
+    stroke-width: 1.5px;
   }
   .node text {
-      font-size:10px; 
-      font-family:sans-serif;
-      fill:white;
-      letter-spacing:.3em;    
+    font-size:10px; 
+    font-family:sans-serif;
+    fill:white;
+    letter-spacing:.3em;
+    
   }
   .link {
-      fill: none;
-      stroke: green;
-      stroke-width: 1.5px;
+    fill: none;
+    stroke: green;
+    stroke-width: 1.5px;
   }
 
   .templink {
-      fill: none;
-      stroke: red;
-      stroke-width: 3px;
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
   }
 
   .ghostCircle.show{
@@ -42,8 +45,13 @@
        display: none;
   }
 </style>
+</head>
+<body>
+<div id="tree-container"></div>
+</body>
 <script>
-  var json = {
+var json = 
+{
     "name": "Grandmother Akkapeddi",
     "children": [{
         "name": "Person1",
@@ -486,6 +494,9 @@ var treeData = json;
         }
         return d;
     }
+    /////////////////////////////////////////////////
+    ///////////////// IMAGE DEFS ////////////////////
+    /////////////////////////////////////////////////
 
     d3.select('svg').append('defs').append("pattern")
         .attr("id", "img1")
@@ -495,11 +506,14 @@ var treeData = json;
         .attr("height", "25")
         .append("image")
 
-        .attr("xlink:href", "src/profile.png")
+        .attr("xlink:href", "https://dl.dropboxusercontent.com/u/89221222/bean.png")
         .attr("x", 0)
         .attr("y", 0)
         .attr("width", 40)
         .attr("height", 40);
+
+
+
 
     // Toggle children on click.
 
@@ -694,5 +708,5 @@ var treeData = json;
     // Layout the tree initially and center on the root node.
     update(root);
     centerNode(root);
-
 </script>
+</html>
